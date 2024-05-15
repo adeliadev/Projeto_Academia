@@ -1,20 +1,25 @@
 import java.util.Scanner;
 
-public  class Main {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
         int r;
         do {
-            Cliente c = new Cliente("",0,"","","","");
-            Funcionario f = new Funcionario("",0,"",0,0,"");
+            Cliente c = new Cliente("", 0, "", "", "", "");
+            Funcionario f = new Funcionario("", 0, "", 0, 0, "");
 
-            System.out.println("Digite 1 Para cadastroo de Cliente, 2 Para Cadastro de funcionario:");
+            System.out.println("======= Cadastro =======");
+            System.out.println("[1] para cadastrar cliente");
+            System.out.println("[2] para cadastrar funcionário");
+            System.out.println("Escolha uma opção:");
+
             int x = sc.nextInt();
-            switch (x){
+            switch (x) {
                 case 1:
-                    System.out.println("Você solicitou cadastro de cliente, Digite as informações abaixo:");
+                    System.out.println("Digite as informações do cliente abaixo:");
                     System.out.println("Nome:");
-                    c.setNome(sc.next());
+                    c.setNome(sc2.nextLine());
                     System.out.println("Idade:");
                     c.setIdade(sc.nextInt());
                     System.out.println("Telefone:");
@@ -24,31 +29,36 @@ public  class Main {
                     System.out.println("CPF:");
                     c.setCpf(sc.next());
                     System.out.println("Email:");
-                    c.setEmail(sc.nextLine());
+                    c.setEmail(sc.next());
                     System.out.println("Cliente cadastrado com sucesso!");
                     sc.nextLine();
                     c.exibirCliente();
                     break;
 
                 case 2:
-                    System.out.println("Você solicitou cadastro de funcionario, Digite as informações abaixo:");
+                    System.out.println("Você solicitou cadastro de funcionario, digite as informações abaixo:");
                     System.out.println("Nome:");
                     f.setNome(sc.next());
                     System.out.println("Idade:");
                     f.setIdade(sc.nextInt());
                     System.out.println("Telefone:");
                     f.setTelefone(sc.next());
+                    System.out.println("ID:");
+                    f.setId(sc.nextInt());
                     System.out.println("Função:");
-                    f.setFuncao(sc.nextLine());
+                    f.setFuncao(sc.next());
                     System.out.println("Funcionario cadastrado com sucesso!");
                     sc.nextLine();
                     f.exibirFuncionario();
-
                     break;
+
+                default:
+                    System.out.println("Escolha uma opção válida!");
             }
             System.out.println("Para um novo cadastro digite 0");
             r = sc.nextInt();
-        }while (r == 0);
+        } while (r == 0);
+        System.out.println("Programa encerrado");
     }
-
 }
+
