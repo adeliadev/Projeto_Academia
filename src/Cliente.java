@@ -1,4 +1,4 @@
-public class Cliente extends Pessoa {
+public class Cliente extends Pessoa implements Exibir {
     private String dataNascimento;
     private String cpf;
     private String email;
@@ -34,7 +34,7 @@ public class Cliente extends Pessoa {
         this.email = email;
     }
 
-    public void exibirCliente(){
+    public void exibir(){
         System.out.println("Nome: " + getNome());
         System.out.println("Idade: " + getIdade());
         System.out.println("Telefone: " + getTelefone());

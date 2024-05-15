@@ -15,7 +15,5 @@ public class Gerente{
         return senha;
     }
 
-    public void gerenciar(){
 
-    }
 }

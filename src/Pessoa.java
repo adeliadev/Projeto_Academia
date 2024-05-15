@@ -1,4 +1,4 @@
-public class Pessoa {
+public abstract class Pessoa {
     protected String nome;
     protected int idade;
     protected String telefone;
@@ -33,4 +33,6 @@ public class Pessoa {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+
 }
