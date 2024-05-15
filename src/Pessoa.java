@@ -1,13 +1,14 @@
 public class Pessoa {
     protected String nome;
     protected int idade;
-    protected int telefone;
+    protected String telefone;
 
-    public Pessoa(String nome, int idade, int telefone){
+    public Pessoa(String nome, int idade, String telefone){
         this.nome = nome;
         this.idade = idade;
         this.telefone = telefone;
     }
+
 
     public String getNome() {
         return nome;
@@ -25,11 +26,11 @@ public class Pessoa {
         this.idade = idade;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 }
