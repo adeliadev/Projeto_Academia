@@ -1,11 +1,9 @@
-import java.util.Scanner;
-
 public class Funcionario extends Pessoa{
     private int id;
     private double salario;
     private String funcao;
 
-    public Funcionario(String nome, int idade, int telefone) {
+    public Funcionario(String nome, int idade, String telefone, int id, double salario, String funcao) {
         super(nome, idade, telefone);
         this.id = id;
         this.salario = salario;
@@ -34,5 +32,13 @@ public class Funcionario extends Pessoa{
 
     public void setFuncao(String funcao) {
         this.funcao = funcao;
+    }
+
+    public void exibirFuncionario(){
+        System.out.println("Nome: " + getNome());
+        System.out.println("Idade: " + getIdade());
+        System.out.println("Telefone: " + getTelefone());
+        System.out.println("Função: " + getFuncao());
+        System.out.println("ID: " + getId());
     }
 }

@@ -3,7 +3,7 @@ public class Cliente extends Pessoa {
     private String cpf;
     private String email;
 
-    public Cliente(String nome, int idade, int telefone, String dataNascimento, String cpf, String email) {
+    public Cliente(String nome, int idade, String telefone, String dataNascimento, String cpf, String email) {
         super(nome, idade, telefone);
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
@@ -32,5 +32,14 @@ public class Cliente extends Pessoa {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void exibirCliente(){
+        System.out.println("Nome: " + getNome());
+        System.out.println("Idade: " + getIdade());
+        System.out.println("Telefone: " + getTelefone());
+        System.out.println("Data de nascimento: " + getDataNascimento());
+        System.out.println("CPF: " + getCpf());
+        System.out.println("Email: " + getEmail());
     }
 }
