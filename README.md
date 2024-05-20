@@ -7,7 +7,7 @@ ao gerente gerenciar de forma mais eficiente os clientes, funcionários e suas i
 
 ## 📫Sprints:
 - Entrega do doc [09/05]: ✅
-- Sprint 1 [16/05]:
+- Sprint 1 [16/05]: ✅
 - Sprint 2 [23/05]:
 - Sprint 3 [30/05]:
 - Entrega final [06/06]:
