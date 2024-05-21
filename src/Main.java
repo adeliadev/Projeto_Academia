@@ -3,6 +3,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
+
+        String usuarioValido = "gerente123";
+        String senhaValida = "senha123";
+
+
         int r;
         do {
             Cliente c = new Cliente("", 0, "", "", "", "");
@@ -15,47 +21,56 @@ public class Main {
             System.out.println("Escolha uma opção:");
 
             int x = sc.nextInt();
-            sc.nextLine(); // Consumes the newline character after nextInt()
             switch (x) {
                 case 1:
                     System.out.println("Digite as informações do cliente abaixo:");
                     System.out.println("Nome:");
-                    c.setNome(sc.nextLine());
+                    c.setNome(sc2.nextLine());
                     System.out.println("Idade:");
                     c.setIdade(sc.nextInt());
-                    sc.nextLine(); // Consume the newline
                     System.out.println("Telefone:");
-                    c.setTelefone(sc.nextLine());
+                    c.setTelefone(sc.next());
                     System.out.println("Data de Nascimento:");
-                    c.setDataNascimento(sc.nextLine());
+                    c.setDataNascimento(sc.next());
                     System.out.println("CPF:");
-                    c.setCpf(sc.nextLine());
+                    c.setCpf(sc.next());
                     System.out.println("Email:");
-                    c.setEmail(sc.nextLine());
+                    c.setEmail(sc.next());
                     System.out.println("Cliente cadastrado com sucesso!");
-                    c.exibirCliente();
+                    sc.nextLine();
+                    c.exibir();
                     break;
 
                 case 2:
                     System.out.println("Você solicitou cadastro de funcionario, digite as informações abaixo:");
                     System.out.println("Nome:");
-                    f.setNome(sc.nextLine());
+                    f.setNome(sc.next());
                     System.out.println("Idade:");
                     f.setIdade(sc.nextInt());
-                    sc.nextLine(); // Consume the newline
                     System.out.println("Telefone:");
-                    f.setTelefone(sc.nextLine());
+                    f.setTelefone(sc.next());
                     System.out.println("ID:");
                     f.setId(sc.nextInt());
-                    sc.nextLine(); // Consume the newline
                     System.out.println("Função:");
-                    f.setFuncao(sc.nextLine());
+                    f.setFuncao(sc.next());
                     System.out.println("Funcionario cadastrado com sucesso!");
-                    f.exibirFuncionario();
+                    sc.nextLine();
+                    f.exibir();
                     break;
 
                 case 3:
-                    Logiin.main(); // Assuming Logiin.main() starts the login process
+                    System.out.println("Login");
+                    System.out.println("Digite o nome do Usuario:");
+                    String usuario  = sc.next();
+                    System.out.println("Digite a Senha:");
+                    String senha = sc.next();
+
+                    if (usuario.equals(usuarioValido) && senha.equals(senhaValida)) {
+                        System.out.println("Login bem-sucedido! Bem-vindo, " + usuario + ".");
+                    } else {
+                        System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
+                    }
+
                     break;
 
                 default:
@@ -65,6 +80,6 @@ public class Main {
             r = sc.nextInt();
         } while (r == 0);
         System.out.println("Programa encerrado");
-        sc.close();
     }
 }
+

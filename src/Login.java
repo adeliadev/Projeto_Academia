@@ -6,7 +6,7 @@ public class Login {
     private static final String USUARIO_FUNCIONARIO_VALIDO = "funcionario123";
     private static final String SENHA_FUNCIONARIO_VALIDA = "senha123";
 
-    public static void main(String[] args) {
+    public static void main() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("======= Login =======");

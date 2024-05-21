@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-public interface Logiin {
-    static final String USUARIO_GERENTE_VALIDO = "gerente123";
-    static final String SENHA_GERENTE_VALIDA = "senha123";
-    static final String USUARIO_FUNCIONARIO_VALIDO = "funcionario123";
-    static final String SENHA_FUNCIONARIO_VALIDA = "senha123";
+public class Logiin {
+    private static final String USUARIO_GERENTE_VALIDO = "gerente123";
+    private static final String SENHA_GERENTE_VALIDA = "senha123";
+    private static final String USUARIO_FUNCIONARIO_VALIDO = "funcionario123";
+    private static final String SENHA_FUNCIONARIO_VALIDA = "senha123";
 
-    static void main() {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("======= Login =======");
@@ -32,7 +32,7 @@ public interface Logiin {
         scanner.close();
     }
 
-    static void loginGerente(Scanner scanner) {
+    private static void loginGerente(Scanner scanner) {
         System.out.println("Digite o nome de usuário do gerente:");
         String usuario = scanner.nextLine();
         System.out.println("Digite a senha do gerente:");
@@ -46,7 +46,7 @@ public interface Logiin {
         }
     }
 
-    static void loginFuncionario(Scanner scanner) {
+    private static void loginFuncionario(Scanner scanner) {
         System.out.println("Digite o nome de usuário do funcionário:");
         String usuario = scanner.nextLine();
         System.out.println("Digite a senha do funcionário:");
@@ -60,5 +60,3 @@ public interface Logiin {
         }
     }
 }
-
-
