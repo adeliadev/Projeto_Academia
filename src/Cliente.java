@@ -34,12 +34,14 @@ public class Cliente extends Pessoa {
         this.email = email;
     }
 
-    public void exibirCliente(){
-        System.out.println("Nome: " + getNome());
-        System.out.println("Idade: " + getIdade());
-        System.out.println("Telefone: " + getTelefone());
-        System.out.println("Data de nascimento: " + getDataNascimento());
-        System.out.println("CPF: " + getCpf());
-        System.out.println("Email: " + getEmail());
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", telefone='" + telefone + '\'' +
+                ", dataNascimento='" + dataNascimento + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

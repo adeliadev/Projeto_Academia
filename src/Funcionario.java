@@ -1,4 +1,4 @@
-public class Funcionario extends Pessoa{
+public class Funcionario extends Pessoa {
     private int id;
     private double salario;
     private String funcao;
@@ -34,11 +34,9 @@ public class Funcionario extends Pessoa{
         this.funcao = funcao;
     }
 
-    public void exibirFuncionario(){
+    public void exibir() {
         System.out.println("Nome: " + getNome());
         System.out.println("Idade: " + getIdade());
         System.out.println("Telefone: " + getTelefone());
-        System.out.println("Função: " + getFuncao());
-        System.out.println("ID: " + getId());
     }
 }

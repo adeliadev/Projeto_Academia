@@ -7,6 +7,7 @@ public class Login {
     private static final String SENHA_FUNCIONARIO_VALIDA = "senha123";
 
     public static void main() {
+        Funcionario f = new  Funcionario("", 0, "", 0, 0, "");
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("======= Login =======");
@@ -16,7 +17,7 @@ public class Login {
         System.out.print("Escolha uma opção: ");
 
         int tipoUsuario = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer do scanner
+        scanner.nextLine();
 
         switch (tipoUsuario) {
             case 1:
@@ -28,8 +29,6 @@ public class Login {
             default:
                 System.out.println("Opção inválida.");
         }
-
-        scanner.close();
     }
 
     private static void loginGerente(Scanner scanner) {
@@ -40,7 +39,12 @@ public class Login {
 
         if (usuario.equals(USUARIO_GERENTE_VALIDO) && senha.equals(SENHA_GERENTE_VALIDA)) {
             System.out.println("Login bem-sucedido como gerente!");
-            // Aqui você pode adicionar a lógica para o que fazer após o login bem-sucedido do gerente
+            System.out.println("===== Gerenciamento =====");
+            System.out.println("[1] Para cadastrar novo funcionário");
+            System.out.println("[2] Para calcular lucros");
+
+
+
         } else {
             System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
         }
