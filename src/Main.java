@@ -89,6 +89,7 @@ public class Main {
                         double precoProduto = sc.nextDouble();
                         Produto novoProduto = new Produto(nomeProduto, precoProduto);
                         System.out.println("Produto cadastrado com sucesso! ID do produto: " + novoProduto.getId());
+                        novoProduto.mostrarProduto();
                     }else {
                         System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
                     }

@@ -5,6 +5,7 @@ public class Produto {
     private String nome;
     private String id;
     private double valor;
+    public Pessoa p;
 
     private static HashMap<String, Produto> produtos = new HashMap<>();
 
@@ -42,12 +43,14 @@ public class Produto {
         this.valor = valor;
     }
 
+    public void mostrarProduto(){
+        System.out.println("Nome do produto: " + getNome() + " ID: " + getId() + " Preço: " + getValor());
+        System.out.println(produtos.toString());
+    }
+
     @Override
     public String toString() {
-        return "Produto{" +
-                "nome='" + nome + '\'' +
-                ", id='" + id + '\'' +
-                ", valor=" + valor +
-                '}';
+        return "[" + "nome='" + nome + '\'' +
+                ", valor=" + valor + "]";
     }
 }
