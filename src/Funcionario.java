@@ -34,6 +34,7 @@ public class Funcionario extends Pessoa {
         this.funcao = funcao;
     }
 
+    // IMPRIMIR
     @Override
     public void mostrarDados() {
         super.mostrarDados();

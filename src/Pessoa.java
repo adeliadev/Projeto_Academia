@@ -34,6 +34,7 @@ public abstract class Pessoa {
         this.telefone = telefone;
     }
 
+    // IMPRIMINDO INFORMAÇÕES
     public void mostrarDados(){
         System.out.println("Nome: " + getNome());
         System.out.println("Idade: " + getIdade());

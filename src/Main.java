@@ -82,7 +82,14 @@ public class Main {
                         double resultado = l.calcular();
                         System.out.println("O lucro é de: R$" + resultado);
                         sc.nextLine();
-                    } else {
+                    } else if (y == 12) {
+                        System.out.println("Nome do produto:");
+                        String nomeProduto = sc.next();
+                        System.out.println("Preço:");
+                        double precoProduto = sc.nextDouble();
+                        Produto novoProduto = new Produto(nomeProduto, precoProduto);
+                        System.out.println("Produto cadastrado com sucesso! ID do produto: " + novoProduto.getId());
+                    }else {
                         System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
                     }
 
