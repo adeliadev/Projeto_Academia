@@ -7,7 +7,7 @@ public class Main {
         Lucros l = new Lucros();
         int r;
         do {
-            Planos p = new Planos(); // Criar um objeto Planos
+            Planos p = new Planos();
             Cliente c = new Cliente("", 0, "", "", "", "");
 
             System.out.println("======= Cadastro =======");
@@ -41,7 +41,6 @@ public class Main {
                     System.out.println("Email:");
                     c.setEmail(sc.nextLine());
 
-                    // Mostrar os dados do cliente
                     System.out.println("\n");
                     p.escolha();
                     c.mostrarDados();
