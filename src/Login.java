@@ -42,6 +42,8 @@ public class Login {
             System.out.println("===== Gerenciamento =====");
             System.out.println("[1] Para cadastrar novo funcionário");
             System.out.println("[2] Para calcular lucros");
+            System.out.println("[12] Cadastrar produto");
+
 
 
 
@@ -58,6 +60,10 @@ public class Login {
 
         if (usuario.equals(USUARIO_FUNCIONARIO_VALIDO) && senha.equals(SENHA_FUNCIONARIO_VALIDA)) {
             System.out.println("Login bem-sucedido como funcionário!");
+            System.out.println("===== Gerenciamento =====");
+            System.out.println("[1] Para cadastrar novo funcionário");
+            System.out.println("[2] Para calcular lucros");
+            System.out.println("[12] Cadastrar produto");
         } else {
             System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
         }
