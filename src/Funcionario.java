@@ -34,9 +34,10 @@ public class Funcionario extends Pessoa {
         this.funcao = funcao;
     }
 
-    public void exibir() {
-        System.out.println("Nome: " + getNome());
-        System.out.println("Idade: " + getIdade());
-        System.out.println("Telefone: " + getTelefone());
+    @Override
+    public void mostrarDados() {
+        super.mostrarDados();
+        System.out.println("ID: " + getId());
+        System.out.println("Função: " + getFuncao());
     }
 }

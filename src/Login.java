@@ -58,7 +58,6 @@ public class Login {
 
         if (usuario.equals(USUARIO_FUNCIONARIO_VALIDO) && senha.equals(SENHA_FUNCIONARIO_VALIDA)) {
             System.out.println("Login bem-sucedido como funcionário!");
-            // Aqui você pode adicionar a lógica para o que fazer após o login bem-sucedido do funcionário
         } else {
             System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
         }

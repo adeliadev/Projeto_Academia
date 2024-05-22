@@ -1,4 +1,4 @@
-public class Pessoa {
+public abstract class Pessoa {
     protected String nome;
     protected int idade;
     protected String telefone;
@@ -34,5 +34,10 @@ public class Pessoa {
         this.telefone = telefone;
     }
 
+    public void mostrarDados(){
+        System.out.println("Nome: " + getNome());
+        System.out.println("Idade: " + getIdade());
+        System.out.println("Telefone: " + getTelefone());
+    };
 
 }

@@ -3,12 +3,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
+        Funcionario f = new Funcionario("", 0, "", 0, 0, "");
+        Lucros l = new Lucros();
         int r;
         do {
+            Planos p = new Planos(); // Criar um objeto Planos
             Cliente c = new Cliente("", 0, "", "", "", "");
-            Funcionario f = new Funcionario("", 0, "", 0, 0, "");
-            Lucros l = new Lucros();
 
             System.out.println("======= Cadastro =======");
             System.out.println("[1] para cadastrar cliente");
@@ -17,9 +17,16 @@ public class Main {
 
             int x = sc.nextInt();
             sc.nextLine();
+
             switch (x) {
                 case 1:
+                    System.out.println("Selecione o plano desejado:");
+                    System.out.println("[1] Mensal - R$ 70.00");
+                    System.out.println("[2] Anual - R$ 50.00");
+                    p.setEscolha(sc.nextInt());
+
                     System.out.println("Digite as informações do cliente abaixo:");
+                    sc.nextLine();
                     System.out.println("Nome:");
                     c.setNome(sc.nextLine());
                     System.out.println("Idade:");
@@ -33,6 +40,13 @@ public class Main {
                     c.setCpf(sc.nextLine());
                     System.out.println("Email:");
                     c.setEmail(sc.nextLine());
+
+                    // Mostrar os dados do cliente
+                    System.out.println("\n");
+                    p.escolha();
+                    c.mostrarDados();
+
+
                     System.out.println("Cliente cadastrado com sucesso!");
                     break;
 
@@ -58,6 +72,7 @@ public class Main {
                         f.setFuncao(sc.nextLine());
                         System.out.println("Funcionario cadastrado com sucesso!");
                         System.out.println("\n");
+                        f.mostrarDados();
                     } else if (y == 2) {
                         //CÁLCULO DOS LUCROS
                         System.out.println("\n");

@@ -2,6 +2,7 @@ public class Cliente extends Pessoa {
     private String dataNascimento;
     private String cpf;
     private String email;
+    public Planos plano;
 
     public Cliente(String nome, int idade, String telefone, String dataNascimento, String cpf, String email) {
         super(nome, idade, telefone);
@@ -34,14 +35,11 @@ public class Cliente extends Pessoa {
         this.email = email;
     }
 
-    public String toString() {
-        return "Cliente{" +
-                "nome='" + nome + '\'' +
-                ", idade=" + idade +
-                ", telefone='" + telefone + '\'' +
-                ", dataNascimento='" + dataNascimento + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+    @Override
+    public void mostrarDados() {
+        super.mostrarDados();
+        System.out.println("Data de nascimento: " + getDataNascimento());
+        System.out.println("CPF: " + getCpf());
+        System.out.println("Email: " + getEmail());
     }
 }
