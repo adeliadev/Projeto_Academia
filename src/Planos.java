@@ -1,11 +1,15 @@
 public class Planos {
+    //ATRIBUTOS
     private int escolha;
     private String planoEscolhido;
 
+    //CONSTRUTOR
     public Planos(){
         this.escolha = escolha;
         escolha();
     }
+
+    //GETTERS AND SETTERS
 
     public String getPlanoEscolhido() {
         return planoEscolhido;
@@ -31,6 +35,7 @@ public class Planos {
         return "Anual - R$ 50.00";
     }
 
+    //MÉTODO
     public void escolha(){
         if (escolha == 1){
             System.out.println("Plano: " + getPlano1());

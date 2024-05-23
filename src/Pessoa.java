@@ -1,14 +1,16 @@
 public abstract class Pessoa {
+    //ATRIBUTOS
     protected String nome;
     protected int idade;
     protected String telefone;
 
+    //CONSTRUTOR
     public Pessoa(String nome, int idade, String telefone){
         this.nome = nome;
         this.idade = idade;
         this.telefone = telefone;
     }
-
+    //GETTERS AND SETTERS
 
     public String getNome() {
         return nome;
@@ -34,7 +36,7 @@ public abstract class Pessoa {
         this.telefone = telefone;
     }
 
-    // IMPRIMINDO INFORMAÇÕES
+    // MÉTODO
     public void mostrarDados(){
         System.out.println("Nome: " + getNome());
         System.out.println("Idade: " + getIdade());

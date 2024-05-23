@@ -2,13 +2,15 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Produto {
+    //ATRIBUTOS
     private String nome;
     private String id;
     private double valor;
-    public Pessoa p;
 
+    //LISTA DE PRODUTOS - MAP
     private static HashMap<String, Produto> produtos = new HashMap<>();
 
+    //CONSTRUTOR
     public Produto(String nome, double valor){
         this.nome = nome;
         this.valor = valor;
@@ -16,16 +18,8 @@ public class Produto {
         produtos.put(id, this);
     }
 
-    public static Produto buscarProdutoPorId(String id) {
-        return produtos.get(id);
-    }
+    //GETTERS AND SETTERS
 
-
-    public void valor(){
-        this.nome = nome;
-        this.id = id;
-        this.valor = valor;
-    }
     public String getNome() {
         return nome;
     }
@@ -48,8 +42,13 @@ public class Produto {
         this.valor = valor;
     }
 
+    //MÉTODOS
+
+    public static Produto buscarProdutoPorId(String id) {
+        return produtos.get(id);
+    }
+
     public void mostrarProduto(){
-        //System.out.println("Nome do produto: " + getNome() + " ID: " + getId() + " Preço: " + getValor());
         System.out.println(produtos.toString());
     }
 

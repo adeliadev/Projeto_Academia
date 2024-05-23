@@ -2,15 +2,16 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        //OBJETOS
         Scanner sc = new Scanner(System.in);
         Funcionario f = new Funcionario("", 0, "", 0, 0, "");
         Lucros l = new Lucros();
+        Planos p = new Planos();
+        Cliente c = new Cliente("", 0, "", "", "", "");
 
         int r;
         do {
-            Planos p = new Planos();
-            Cliente c = new Cliente("", 0, "", "", "", "");
-
+            //MENU INICIAL
             System.out.println("======= Cadastro =======");
             System.out.println("[1] para cadastrar cliente");
             System.out.println("[2] para Login no sistema");
@@ -21,6 +22,7 @@ public class Main {
 
             switch (x) {
                 case 1:
+                    //CADASTRO DE CLIENTE
                     System.out.println("Selecione o plano desejado:");
                     System.out.println("[1] Mensal - R$ 70.00");
                     System.out.println("[2] Anual - R$ 50.00");
@@ -71,6 +73,7 @@ public class Main {
                         System.out.println("Função:");
                         f.setFuncao(sc.nextLine());
                         System.out.println("Funcionario cadastrado com sucesso!");
+
                         System.out.println("\n");
                         f.mostrarDados();
                     } else if (y == 2) {
@@ -83,7 +86,8 @@ public class Main {
                         double resultado = l.calcular();
                         System.out.println("O lucro é de: R$" + resultado);
                         sc.nextLine();
-                    } else if (y == 12) {
+                    } else if (y == 3) {
+                        //CADASTRO DE PRODUTO
                         System.out.println("Nome do produto:");
                         String nomeProduto = sc.next();
                         System.out.println("Preço:");
@@ -92,8 +96,9 @@ public class Main {
                         System.out.println("Produto cadastrado com sucesso! ID do produto: " + novoProduto.getId());
                         novoProduto.mostrarProduto();
 
-                        //Buscando produto por ID
-                        Scanner scanner = new Scanner(System.in);
+                    }else if (y == 4){
+                        //PESQUISAR PRODUTO
+                        Scanner scanner = new Scanner(System.in); //
                         System.out.print("Digite o ID do produto que deseja buscar: ");
                         String idDigitado = scanner.nextLine();
 
@@ -109,6 +114,7 @@ public class Main {
                     }
                     break;
             }
+            //SELEÇÃO DE OPÇÃO
             System.out.println("Para selecionar uma nova opção digite [0]:");
             r = sc.nextInt();
             sc.nextLine();

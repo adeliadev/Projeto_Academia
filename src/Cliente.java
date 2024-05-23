@@ -1,15 +1,19 @@
 public class Cliente extends Pessoa {
+    //ATRIBUTOS
     private String dataNascimento;
     private String cpf;
     private String email;
     public Planos plano;
 
+    //CONSTRUTOR
     public Cliente(String nome, int idade, String telefone, String dataNascimento, String cpf, String email) {
         super(nome, idade, telefone);
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
         this.email = email;
     }
+
+    //GETTERS AND SETTERS
 
     public String getDataNascimento() {
         return dataNascimento;
@@ -35,6 +39,7 @@ public class Cliente extends Pessoa {
         this.email = email;
     }
 
+    //MÉTODO
     @Override
     public void mostrarDados() {
         super.mostrarDados();
