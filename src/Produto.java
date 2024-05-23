@@ -16,6 +16,11 @@ public class Produto {
         produtos.put(id, this);
     }
 
+    public static Produto buscarProdutoPorId(String id) {
+        return produtos.get(id);
+    }
+
+
     public void valor(){
         this.nome = nome;
         this.id = id;
@@ -44,7 +49,7 @@ public class Produto {
     }
 
     public void mostrarProduto(){
-        System.out.println("Nome do produto: " + getNome() + " ID: " + getId() + " Preço: " + getValor());
+        //System.out.println("Nome do produto: " + getNome() + " ID: " + getId() + " Preço: " + getValor());
         System.out.println(produtos.toString());
     }
 

@@ -5,6 +5,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Funcionario f = new Funcionario("", 0, "", 0, 0, "");
         Lucros l = new Lucros();
+
         int r;
         do {
             Planos p = new Planos();
@@ -90,10 +91,23 @@ public class Main {
                         Produto novoProduto = new Produto(nomeProduto, precoProduto);
                         System.out.println("Produto cadastrado com sucesso! ID do produto: " + novoProduto.getId());
                         novoProduto.mostrarProduto();
+
+                        //Buscando produto por ID
+                        Scanner scanner = new Scanner(System.in);
+                        System.out.print("Digite o ID do produto que deseja buscar: ");
+                        String idDigitado = scanner.nextLine();
+
+                        Produto produtoEncontrado = Produto.buscarProdutoPorId(idDigitado);
+                        if (produtoEncontrado != null) {
+                            System.out.println("Produto encontrado: " + produtoEncontrado);
+                        } else {
+                            System.out.println("Produto não encontrado.");
+                        }
+
                     }else {
                         System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
                     }
-
+                    break;
             }
             System.out.println("Para selecionar uma nova opção digite [0]:");
             r = sc.nextInt();
