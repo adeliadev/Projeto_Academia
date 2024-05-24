@@ -3,10 +3,13 @@ public class Planos {
     private int escolha;
     private String planoEscolhido;
 
-    //CONSTRUTOR
     public Planos(){
+
+    }
+
+    public Planos(int escolha, String planoEscolhido) {
         this.escolha = escolha;
-        escolha();
+        this.planoEscolhido = planoEscolhido;
     }
 
     //GETTERS AND SETTERS
@@ -33,17 +36,6 @@ public class Planos {
 
     public String getPlano2() {
         return "Anual - R$ 50.00";
-    }
-
-    //MÉTODO
-    public void escolha(){
-        if (escolha == 1){
-            System.out.println("Plano: " + getPlano1());
-        } else if (escolha == 2) {
-            System.out.println("Plano: " + getPlano2());
-        } else {
-            System.out.println("Opção inválida! Tente novamente.");
-        }
     }
 
 }

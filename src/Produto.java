@@ -1,21 +1,20 @@
 import java.util.HashMap;
-import java.util.Random;
+import java.util.Map;
 
 public class Produto {
     //ATRIBUTOS
     private String nome;
-    private String id;
     private double valor;
+    private String id;
 
     //LISTA DE PRODUTOS - MAP
-    private static HashMap<String, Produto> produtos = new HashMap<>();
+   private static HashMap<String, Produto> produtos = new HashMap<>();
 
     //CONSTRUTOR
-    public Produto(String nome, double valor){
+    public Produto(String nome, double valor, String id){
         this.nome = nome;
         this.valor = valor;
-        this.id = String.valueOf(new Random().nextInt(1000));
-        produtos.put(id, this);
+        this.id = id;
     }
 
     //GETTERS AND SETTERS
@@ -48,8 +47,12 @@ public class Produto {
         return produtos.get(id);
     }
 
-    public void mostrarProduto(){
-        System.out.println(produtos.toString());
+    public String mostrarProduto(){
+        return produtos.toString();
+    }
+
+    public static void adicionarProduto(Produto produto) {
+        produtos.put(produto.getId(), produto);
     }
 
     @Override

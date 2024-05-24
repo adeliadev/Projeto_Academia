@@ -23,10 +23,6 @@ public class Main {
             switch (x) {
                 case 1:
                     //CADASTRO DE CLIENTE
-                    System.out.println("Selecione o plano desejado:");
-                    System.out.println("[1] Mensal - R$ 70.00");
-                    System.out.println("[2] Anual - R$ 50.00");
-                    p.setEscolha(sc.nextInt());
 
                     System.out.println("Digite as informações do cliente abaixo:");
                     sc.nextLine();
@@ -45,7 +41,19 @@ public class Main {
                     c.setEmail(sc.nextLine());
 
                     System.out.println("\n");
-                    p.escolha();
+                    System.out.println("escolha o plano 1 ou 2");
+                    System.out.println(p.getPlano1());
+                    System.out.println(p.getPlano2());
+
+                    int escolha = sc.nextInt();
+                    if (escolha == 1){
+                        System.out.println("Plano 1 escolhido");
+                    } else if (escolha == 2) {
+                        System.out.println("Plano 2 escolhido");
+                    } else {
+                        System.out.println("Opção inválida! Tente novamente.");
+                    }
+
                     c.mostrarDados();
 
 
@@ -92,19 +100,30 @@ public class Main {
                         String nomeProduto = sc.next();
                         System.out.println("Preço:");
                         double precoProduto = sc.nextDouble();
-                        Produto novoProduto = new Produto(nomeProduto, precoProduto);
+                        System.out.println("ID:");
+                        String idProduto = sc.nextLine();
+                        Produto novoProduto = new Produto(nomeProduto, precoProduto, idProduto);
                         System.out.println("Produto cadastrado com sucesso! ID do produto: " + novoProduto.getId());
                         novoProduto.mostrarProduto();
 
                     }else if (y == 4){
-                        //PESQUISAR PRODUTO
-                        Scanner scanner = new Scanner(System.in); //
+                        //CRIANDO VALORES FIXOS
+                        Produto p1 = new Produto("Luva", 40.0, "1");
+                        Produto p2 = new Produto("Barra de proteína", 10.0, "2");
+                        Produto p3 = new Produto("Barra de proteína", 10.0, "3");
+
+                        // UTILIZANDO MÉTODO DE ADICIONAR PRODUTOS
+                        Produto.adicionarProduto(p1);
+                        Produto.adicionarProduto(p2);
+                        Produto.adicionarProduto(p3);
+
                         System.out.print("Digite o ID do produto que deseja buscar: ");
-                        String idDigitado = scanner.nextLine();
+                        String idDigitado = sc.nextLine();
 
                         Produto produtoEncontrado = Produto.buscarProdutoPorId(idDigitado);
                         if (produtoEncontrado != null) {
                             System.out.println("Produto encontrado: " + produtoEncontrado);
+
                         } else {
                             System.out.println("Produto não encontrado.");
                         }
