@@ -12,6 +12,7 @@ public class Main {
         Cliente c = new Cliente("", 0, "", "", "", "");
         Produto produto = new Produto();
 
+        //VALORES FIXOS
         Produto p1 = new Produto("Luva", 40.0, "001");
         Produto p2 = new Produto("Garrafa", 39.99, "002");
         Produto p3 = new Produto("Barra de proteína", 10.0, "003");
@@ -35,9 +36,7 @@ public class Main {
             switch (x) {
                 case 1:
                     //CADASTRO DE CLIENTE
-
                     System.out.println("Digite as informações do cliente abaixo:");
-                    //sc.nextLine();
                     System.out.println("Nome:");
                     c.setNome(sc.nextLine());
                     System.out.println("Idade:");
@@ -52,6 +51,7 @@ public class Main {
                     System.out.println("Email:");
                     c.setEmail(sc.nextLine());
 
+                    //SELEÇÃO DE PLANO
                     System.out.println("\n");
                     System.out.println("escolha o plano 1 ou 2");
                     System.out.println(p.getPlano1());
@@ -67,7 +67,6 @@ public class Main {
                     }
 
                     c.mostrarDados();
-
 
                     System.out.println("Cliente cadastrado com sucesso!");
                     break;
@@ -104,7 +103,7 @@ public class Main {
                         System.out.println("Valor das despesas: R$");
                         l.setValorDespesas(sc.nextDouble());
                         double resultado = l.calcular();
-                        System.out.println("O lucro é de: R$" + resultado);
+                        System.out.println(STR."O lucro é de: R$\{resultado}");
                         sc.nextLine();
                     } else if (y == 3) {
 
@@ -129,7 +128,7 @@ public class Main {
                         break;
 
                     }else if (y == 4){
-
+                        //PESQUISA DE PRODUTO
                         int buscar;
                         do {
                             System.out.print("Digite o ID do produto que deseja buscar: ");
@@ -137,7 +136,7 @@ public class Main {
 
                             Produto produtoEncontrado = Produto.buscarProdutoPorId(idDigitado);
                             if (produtoEncontrado != null) {
-                                System.out.println("Produto encontrado: " + produtoEncontrado);
+                                System.out.println(STR."Produto encontrado: \{produtoEncontrado}");
                             } else {
                                 System.out.println("Produto não encontrado.");
                             }
@@ -154,20 +153,22 @@ public class Main {
 
                         int venda;
                         do {
-                            // VENDA DE PRODUTO
+                            // SELEÇÃO DE PRODUTO PARA VENDA
                             System.out.print("Digite o ID do produto que deseja vender: ");
                             String idDigitado = sc.nextLine();
 
+                            //PESQUISA DO PRODUTO PARA VENDA
                             Produto produtoEncontrado = Produto.buscarProdutoPorId(idDigitado);
                             if (produtoEncontrado != null) {
-                                System.out.println("Produto encontrado: " + produtoEncontrado);
+                                System.out.println(STR."Produto encontrado: \{produtoEncontrado}");
                                 System.out.print("Digite a quantidade que deseja vender: ");
                                 int quantidade = sc.nextInt();
                                 sc.nextLine();
 
+                                //CÁLCULO DA VENDA
                                 double valorTotal = produtoEncontrado.venderProduto(quantidade);
                                 if (valorTotal > 0) {
-                                    System.out.println("Venda realizada com sucesso! Valor total: R$" + valorTotal);
+                                    System.out.println(STR."Venda realizada com sucesso! Valor total: R$\{valorTotal}");
                                     totalVendas += valorTotal;
                                     produtosVendidos.add(produtoEncontrado);
                                 } else {
@@ -181,11 +182,12 @@ public class Main {
                             venda = Integer.parseInt(sc.nextLine());
                         } while (venda == 1);
 
+                        //IMPRESSÃO DO VALOR DA VENDA
                         System.out.println("Produtos vendidos:");
                         for (Produto produtoVendido : produtosVendidos) {
                             System.out.println(produtoVendido.getNome());
                         }
-                        System.out.println("Total de vendas: R$" + totalVendas);
+                        System.out.println(STR."Total de vendas: R$\{totalVendas}");
                     } else {
                         System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
                     }
