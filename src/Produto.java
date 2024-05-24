@@ -6,9 +6,10 @@ public class Produto {
     private String nome;
     private double valor;
     private String id;
+    private int quantidadeEmEstoque = 1000;
 
     //LISTA DE PRODUTOS - MAP
-   private static HashMap<String, Produto> produtos = new HashMap<>();
+    private static HashMap<String, Produto> produtos = new HashMap<>();
 
     //CONSTRUTOR
     public Produto(String nome, double valor, String id){
@@ -44,7 +45,7 @@ public class Produto {
     //MÉTODOS
 
     public static Produto buscarProdutoPorId(String id) {
-        return produtos.get(id);
+    return produtos.get(id);
     }
 
     public String mostrarProduto(){
@@ -59,5 +60,17 @@ public class Produto {
     public String toString() {
         return "[" + "nome='" + nome + '\'' +
                 ", valor=" + valor + "]";
+    }
+
+    public Produto(){
+
+    }
+    public double venderProduto(int quantidade) {
+        if (quantidade <= this.quantidadeEmEstoque) {
+            this.quantidadeEmEstoque -= quantidade;
+            return this.valor * quantidade;
+        } else {
+            return -1;
+        }
     }
 }

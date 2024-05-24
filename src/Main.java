@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,6 +10,16 @@ public class Main {
         Lucros l = new Lucros();
         Planos p = new Planos();
         Cliente c = new Cliente("", 0, "", "", "", "");
+        Produto produto = new Produto();
+
+        Produto p1 = new Produto("Luva", 40.0, "001");
+        Produto p2 = new Produto("Garrafa", 39.99, "002");
+        Produto p3 = new Produto("Barra de proteína", 10.0, "003");
+
+        // UTILIZANDO MÉTODO DE ADICIONAR PRODUTOS
+        Produto.adicionarProduto(p1);
+        Produto.adicionarProduto(p2);
+        Produto.adicionarProduto(p3);
 
         int r;
         do {
@@ -25,7 +37,7 @@ public class Main {
                     //CADASTRO DE CLIENTE
 
                     System.out.println("Digite as informações do cliente abaixo:");
-                    sc.nextLine();
+                    //sc.nextLine();
                     System.out.println("Nome:");
                     c.setNome(sc.nextLine());
                     System.out.println("Idade:");
@@ -95,40 +107,86 @@ public class Main {
                         System.out.println("O lucro é de: R$" + resultado);
                         sc.nextLine();
                     } else if (y == 3) {
-                        //CADASTRO DE PRODUTO
-                        System.out.println("Nome do produto:");
-                        String nomeProduto = sc.next();
-                        System.out.println("Preço:");
-                        double precoProduto = sc.nextDouble();
-                        System.out.println("ID:");
-                        String idProduto = sc.nextLine();
-                        Produto novoProduto = new Produto(nomeProduto, precoProduto, idProduto);
-                        System.out.println("Produto cadastrado com sucesso! ID do produto: " + novoProduto.getId());
-                        novoProduto.mostrarProduto();
+
+                        int repetir;
+                        do {
+                            //CADASTRO DE PRODUTO
+                            System.out.println("Nome do produto:");
+                            String nomeProduto = sc.next();
+                            System.out.println("Preço:");
+                            double precoProduto = sc.nextDouble();
+                            System.out.println("ID:");
+                            String idProduto = sc.next();
+
+                            Produto novoProduto = new Produto(nomeProduto, precoProduto, idProduto);
+                            System.out.println("Produto cadastrado com sucesso!");
+                            novoProduto.mostrarProduto();
+
+                            System.out.println("Para cadastro de um novo produto digite [1]");
+                            repetir = sc.nextInt();
+                        } while (repetir == 1);
+
+                        break;
 
                     }else if (y == 4){
-                        //CRIANDO VALORES FIXOS
-                        Produto p1 = new Produto("Luva", 40.0, "1");
-                        Produto p2 = new Produto("Barra de proteína", 10.0, "2");
-                        Produto p3 = new Produto("Barra de proteína", 10.0, "3");
 
-                        // UTILIZANDO MÉTODO DE ADICIONAR PRODUTOS
-                        Produto.adicionarProduto(p1);
-                        Produto.adicionarProduto(p2);
-                        Produto.adicionarProduto(p3);
+                        int buscar;
+                        do {
+                            System.out.print("Digite o ID do produto que deseja buscar: ");
+                            String idDigitado = sc.nextLine();
 
-                        System.out.print("Digite o ID do produto que deseja buscar: ");
-                        String idDigitado = sc.nextLine();
+                            Produto produtoEncontrado = Produto.buscarProdutoPorId(idDigitado);
+                            if (produtoEncontrado != null) {
+                                System.out.println("Produto encontrado: " + produtoEncontrado);
+                            } else {
+                                System.out.println("Produto não encontrado.");
+                            }
 
-                        Produto produtoEncontrado = Produto.buscarProdutoPorId(idDigitado);
-                        if (produtoEncontrado != null) {
-                            System.out.println("Produto encontrado: " + produtoEncontrado);
+                            System.out.println("Para buscar digite [1], para sair digite qualquer outro número");
 
-                        } else {
-                            System.out.println("Produto não encontrado.");
+                            buscar = Integer.parseInt(sc.nextLine());
+                        } while (buscar == 1);
+
+                    } else if (y == 5) {
+
+                        double totalVendas = 0;
+                        List<Produto> produtosVendidos = new ArrayList<>();
+
+                        int venda;
+                        do {
+                            // VENDA DE PRODUTO
+                            System.out.print("Digite o ID do produto que deseja vender: ");
+                            String idDigitado = sc.nextLine();
+
+                            Produto produtoEncontrado = Produto.buscarProdutoPorId(idDigitado);
+                            if (produtoEncontrado != null) {
+                                System.out.println("Produto encontrado: " + produtoEncontrado);
+                                System.out.print("Digite a quantidade que deseja vender: ");
+                                int quantidade = sc.nextInt();
+                                sc.nextLine();
+
+                                double valorTotal = produtoEncontrado.venderProduto(quantidade);
+                                if (valorTotal > 0) {
+                                    System.out.println("Venda realizada com sucesso! Valor total: R$" + valorTotal);
+                                    totalVendas += valorTotal;
+                                    produtosVendidos.add(produtoEncontrado);
+                                } else {
+                                    System.out.println("Não foi possível realizar a venda. Verifique a quantidade em estoque.");
+                                }
+                            } else {
+                                System.out.println("Produto não encontrado.");
+                            }
+                            System.out.println("Para uma nova venda digite [1], para sair digite qualquer outro número");
+
+                            venda = Integer.parseInt(sc.nextLine());
+                        } while (venda == 1);
+
+                        System.out.println("Produtos vendidos:");
+                        for (Produto produtoVendido : produtosVendidos) {
+                            System.out.println(produtoVendido.getNome());
                         }
-
-                    }else {
+                        System.out.println("Total de vendas: R$" + totalVendas);
+                    } else {
                         System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
                     }
                     break;

@@ -49,6 +49,7 @@ public class Login {
             System.out.println("[2] Para calcular lucros");
             System.out.println("[3] Cadastrar produto");
             System.out.println("[4] Pesquisar produto");
+            System.out.println("[5] Venda do produto");
         } else {
             System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
         }
@@ -68,6 +69,7 @@ public class Login {
             System.out.println("[2] Para calcular lucros");
             System.out.println("[3] Cadastrar produto");
             System.out.println("[4] Pesquisar produto");
+            System.out.println("[5] Venda do produto");
         } else {
             System.out.println("Nome de usuário ou senha incorretos. Tente novamente.");
         }
